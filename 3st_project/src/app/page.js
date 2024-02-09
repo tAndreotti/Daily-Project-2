@@ -1,9 +1,11 @@
 "use client";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import {
+  center,
+  diminua,
   floating1,
   floating2,
   floating3,
@@ -12,7 +14,10 @@ import {
   floating6,
   floating7,
   floating8,
+  foque,
 } from "../data";
+import { motion } from "framer-motion";
+import { blur } from "./anim";
 
 export default function Home() {
   const plane1 = useRef(null);
@@ -61,6 +66,16 @@ export default function Home() {
     }
   };
 
+  const [selectedLink, setSelectedLink] = useState(0);
+
+  const handleMouseOver = (index) => () => {
+    setSelectedLink(index);
+  };
+
+  const handleMouseLeave = () => {
+    setSelectedLink(0);
+  };
+
   return (
     <main
       onMouseMove={(e) => {
@@ -69,23 +84,72 @@ export default function Home() {
       className={styles.main}
     >
       <div ref={plane1} className={styles.plane}>
-        <Image src={floating1} alt="image" width={300} />
-        <Image src={floating2} alt="image" width={300} />
-        <Image src={floating7} alt="image" width={225} />
+        <Image src={floating8} alt="image" width={360} />
+        <Image
+          onMouseOver={handleMouseOver(2)}
+          onMouseLeave={handleMouseLeave}
+          src={floating5}
+          alt="image"
+          width={350}
+        />
+        <Image
+          onMouseOver={handleMouseOver(3)}
+          onMouseLeave={handleMouseLeave}
+          src={floating2}
+          alt="image"
+          width={360}
+        />
       </div>
       <div ref={plane2} className={styles.plane}>
-        <Image src={floating4} alt="image" width={250} />
-        <Image src={floating6} alt="image" width={200} />
-        <Image src={floating8} alt="image" width={225} />
+        <Image
+          onMouseOver={handleMouseOver(4)}
+          onMouseLeave={handleMouseLeave}
+          src={floating1}
+          alt="image"
+          width={260}
+        />
+        <Image
+          onMouseOver={handleMouseOver(5)}
+          onMouseLeave={handleMouseLeave}
+          src={floating4}
+          alt="image"
+          width={280}
+        />
+        <Image
+          onMouseOver={handleMouseOver(6)}
+          onMouseLeave={handleMouseLeave}
+          src={floating7}
+          alt="image"
+          width={300}
+        />
       </div>
       <div ref={plane3} className={styles.plane}>
-        <Image src={floating3} alt="image" width={150} />
-        <Image src={floating5} alt="image" width={200} />
+        <Image
+          onMouseOver={handleMouseOver(7)}
+          onMouseLeave={handleMouseLeave}
+          src={floating3}
+          alt="image"
+          width={250}
+        />
+        <Image
+          onMouseOver={handleMouseOver(8)}
+          onMouseLeave={handleMouseLeave}
+          src={floating6}
+          alt="image"
+          width={300}
+        />
       </div>
       <div className={styles.title}>
-        <h1>Floating Images Gallery</h1>
-        <p>Next.js and GSAP</p>
+        <Image src={center} alt="image" width={100} />
+        <Image src={diminua} alt="image" width={100} />
+        <Image src={foque} alt="image" width={300} />
       </div>
+      <div className={styles.topLeft1}></div>
+      <div className={styles.topLeft2}></div>
+      <div className={styles.topLeft3}></div>
+      <div className={styles.topLeft4}></div>
+      <div className={styles.topLeft5}></div>
+      <div className={styles.topLeft6}></div>
     </main>
   );
 }

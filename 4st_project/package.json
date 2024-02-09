@@ -1,5 +1,5 @@
 {
-  "name": "3st_project",
+  "name": "4st_project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,11 +13,11 @@
     "gsap": "^3.12.5",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "sass": "^1.70.0"
+    "eslint-config-next": "14.1.0"
   }
 }
